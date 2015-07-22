@@ -115,6 +115,9 @@ seL4_CPtr simple_stable_get_IOPort_cap(void *data, uint16_t start_port, uint16_t
         #define INIT_CAP_TOP_RANGE (5 + INIT_CAP_BASE_RANGE)
         seL4_CPtr caps[] = {1,2,3,4,5,7,8,9,10};
     #endif
+#elif defined(CONFIG_ARCH_RISCV)
+        #define INIT_CAP_TOP_RANGE (2 + INIT_CAP_BASE_RANGE)
+        seL4_CPtr caps[] = {1,2,3,4,7,9};
 #endif
 
 #define SHARED_FRAME_RANGE ((bi->sharedFrames.end - bi->sharedFrames.start) + INIT_CAP_TOP_RANGE)
